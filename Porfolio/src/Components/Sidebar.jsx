@@ -94,6 +94,8 @@ function Sidebar() {
 
             <label>Email</label>
 
+            <br />
+
             <a href="mailto:iankyle1717@gmail.com">
               iankyle1717@gmail.com
             </a>
@@ -101,8 +103,10 @@ function Sidebar() {
           </div>
 
           <div className="contact-item">
-
+          
             <label>Phone</label>
+
+               <br />
 
             <a href="tel:09695202982">
               09695202982
@@ -113,7 +117,8 @@ function Sidebar() {
           <div className="contact-item">
 
             <label>Location</label>
-
+                 <br />
+                 
             <span>
               Cabangan, Zambales
             </span>
