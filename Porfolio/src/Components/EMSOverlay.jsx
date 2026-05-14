@@ -12,25 +12,28 @@ function EMSOverlay({ show, onClose }) {
           <img src={EMS} alt="EMS Project" />
         </div>
 
-        <div className="ems-content">
-          <h2>Engineering Management System</h2>
+       <div className="ems-content">
 
-          <p>
-            A full-scale enterprise system built for engineering workflow automation,
-            machine monitoring, preventive maintenance, and paperless operations.
-          </p>
+    <h2>
+      Engineering Management System
+    </h2>
 
-          <div className="ems-tags">
-            <span>Machine Monitoring</span>
-            <span>Workflow Automation</span>
-            <span>Reports</span>
-            <span>Inventory</span>
-          </div>
+      <p>
+        Enterprise-level engineering workflow platform
+        designed for machine monitoring, preventive
+        maintenance, inventory tracking, fabrication
+        requests, reporting systems, and complete
+        paperless operations across departments.
+      </p>
 
-          <button className="ems-close" onClick={onClose}>
-            Close
-          </button>
-        </div>
+      <button
+        className="ems-close"
+        onClick={onClose}
+      >
+        Close Project
+      </button>
+
+    </div>
 
       </div>
     </div>

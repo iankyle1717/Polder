@@ -75,8 +75,6 @@ function TechStack() {
             <div className="tech">Visual Studio</div>
             <div className="tech">VS Code</div>
             <div className="tech">GitHub</div>
-            <div className="tech">REST API</div>
-            <div className="tech">Postman</div>
 
           </div>
 

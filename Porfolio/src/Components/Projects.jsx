@@ -1,13 +1,9 @@
 import { useState } from "react";
 import EMS from "../assets/EMS.png";
-import EMSOverlay from "./EMSOverlay";
 
-function Projects() {
-  const [open, setOpen] = useState(false);
+function Projects({ onOpenEMS }) {
 
-  const handleClick = () => {
-    setOpen(true);
-  };
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="section">
@@ -18,20 +14,73 @@ function Projects() {
 
       <div className="projects-grid">
 
-        <div className="stack-card project-card" onClick={handleClick}>
+        <div className="stack-card project-card">
 
-          <div className="project-header">
-            <h3>Engineering Management System</h3>
+          {/* CLICKABLE AREA */}
+          <div onClick={onOpenEMS} style={{ cursor: "pointer" }}>
 
-            <span className="project-badge">
-              Enterprise System
-            </span>
+            <div className="project-header">
+
+              <h3>Engineering Management System</h3>
+
+              <span className="project-badge">
+                Enterprise System
+              </span>
+
+            </div>
+
+            <p className={`project-desc ${expanded ? "expanded" : ""}`}>
+
+              EMS Web started from a simple observation inside engineering
+              operations — too many critical processes were still dependent on
+              paper forms, manual monitoring, scattered files, and delayed
+              communication between departments.
+
+              <br /><br />
+
+              What began as a machine monitoring and registration tool gradually
+              evolved into a full engineering management ecosystem designed to
+              simplify daily operations, improve traceability, and modernize the
+              workflow of the entire PE environment.
+
+              <br /><br />
+
+              One of the biggest challenges was visibility. Machine histories,
+              preventive maintenance schedules, fabrication requests, and operator
+              activities were difficult to track in real time.
+
+              <br /><br />
+
+              EMS Web was built to solve those operational gaps by creating a
+              centralized digital platform where engineering teams could manage
+              workflows in one place with better speed, transparency, and accuracy.
+
+              <br /><br />
+
+              The system introduced paperless fabrication requests, real-time
+              machine monitoring, preventive maintenance scheduling, inventory
+              tracking, department expense monitoring, operator logging, and
+              engineering reporting tools.
+
+              <br /><br />
+
+              Today, EMS Web continues to serve as a centralized enterprise system
+              supporting engineering productivity, operational visibility, and the
+              company’s long-term paperless transformation goals.
+
+            </p>
+
           </div>
 
-          <p className="project-desc">
-            EMS Web is designed to support engineering and production improvements across the organization. It provides a centralized platform for machine registration, monitoring, and preventive maintenance scheduling. The system enhances transparency by logging operator actions and ensuring traceability of every workflow. EMS Web also includes additional tools and modules that improve operational efficiency, collaboration, and paperless workflow management across departments.
-          </p>
+          {/* READ MORE BUTTON */}
+          <button
+            className="read-more-btn"
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded ? "Show Less" : "Read More"}
+          </button>
 
+          {/* FEATURES */}
           <div className="project-features">
 
             <span>Machine Monitoring</span>
@@ -43,26 +92,14 @@ function Projects() {
             <span>Task Management</span>
             <span>Stock Management</span>
             <span>Paperless Workflow</span>
-            <span>Fabrication Requests</span>
             <span>Preventive Maintenance</span>
-            <span>Inventory Tracking</span>
-            <span>Operator Logs</span>
-            <span>Workflow Automation</span>
-            <span>Production Monitoring</span>
-            <span>Data Analytics</span>
-            <span>Reporting System</span>
-            <span>Department Management</span>
-            <span>Machine Registration</span>
-            <span>Etc.</span>
+                <span>ETC.</span>
 
           </div>
 
         </div>
 
       </div>
-
-      {/* FIXED: USE EMSOverlay */}
-      <EMSOverlay show={open} onClose={() => setOpen(false)} />
 
     </div>
   );

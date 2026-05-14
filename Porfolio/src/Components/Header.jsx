@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import profile from "../assets/pc.jpg";
 import profileShade from "../assets/pc-shades.png";
 
-function Header() {
+function Header({ onOpenEMS })  {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -33,14 +33,25 @@ function Header() {
           </div>
 
           <div className="profile-info">
-            <h1>Ian Kyle Felix. Maghinay</h1>
+            <h1>Ian Kyle Felix Maghinay</h1>
             <div className="role">System Developer • Web Developer</div>
             <div className="location">📍 Cabangan, Zambales</div>
 
             <div className="action-buttons">
               <button className="btn btn-dark">Contact Me</button>
-              <button className="btn btn-light">View Full Details</button>
-              <button className="btn btn-light">View Projects</button>
+              <a
+                  href="/Ian_Kyle_Maghinay_CV.pdf"
+                  download
+                  className="btn btn-light"
+                >
+                  Download CV
+                </a>
+              <button
+              className="btn btn-light"
+              onClick={onOpenEMS}
+            >
+              View Projects
+            </button>
             </div>
           </div>
 

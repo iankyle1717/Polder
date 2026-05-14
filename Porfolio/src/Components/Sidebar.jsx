@@ -87,50 +87,77 @@ function Sidebar() {
 
       {/* CONTACT */}
 
-      <div className="sidebar-card">
+ <div className="sidebar-card">
 
-        <h3>Contact</h3>
+  <h3>Contact</h3>
 
-        <div className="contact-list">
+  <div className="contact-list">
 
-          <div className="contact-item">
+    {/* EMAIL */}
+    <div className="contact-item">
+      <label>Email</label>
+      <br />
+      <a href="mailto:iankyle1717@gmail.com">
+        iankyle1717@gmail.com
+      </a>
+    </div>
 
-            <label>Email</label>
+    {/* PHONE */}
+    <div className="contact-item">
+      <label>Phone</label>
+      <br />
+      <a href="tel:09695202982">
+        09695202982
+      </a>
+    </div>
 
-            <br />
+    {/* LOCATION */}
+    <div className="contact-item">
+      <label>Location</label>
+      <br />
+      <span>Cabangan, Zambales</span>
+    </div>
 
-            <a href="mailto:iankyle1717@gmail.com">
-              iankyle1717@gmail.com
-            </a>
+    {/* SOCIAL ICONS */}
+    <div className="contact-item">
+      <label>Social Links</label>
 
-          </div>
+      <div className="social-icons">
 
-          <div className="contact-item">
-          
-            <label>Phone</label>
+        {/* FACEBOOK */}
+        <a
+          href="https://www.facebook.com/Ian Kyle Felix Maghinay"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/facebook.svg" alt="Facebook" />
+        </a>
 
-               <br />
+        {/* INSTAGRAM */}
+        <a
+          href="https://www.instagram.com/kyleeeese"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/instagram.svg" alt="Instagram" />
+        </a>
 
-            <a href="tel:09695202982">
-              09695202982
-            </a>
-
-          </div>
-
-          <div className="contact-item">
-
-            <label>Location</label>
-                 <br />
-                 
-            <span>
-              Cabangan, Zambales
-            </span>
-
-          </div>
-
-        </div>
+        {/* LINKEDIN (using Gmail as your LinkedIn identity) */}
+        <a
+          href="mailto:iankyle1717@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
 
       </div>
+    </div>
+
+  </div>
+
+</div>
+
 
     </div>
   );
