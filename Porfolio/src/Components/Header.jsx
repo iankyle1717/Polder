@@ -33,7 +33,7 @@ function Header() {
           </div>
 
           <div className="profile-info">
-            <h1>Ian Kyle Maghinay</h1>
+            <h1>Ian Kyle Felix. Maghinay</h1>
             <div className="role">System Developer • Web Developer</div>
             <div className="location">📍 Cabangan, Zambales</div>
 

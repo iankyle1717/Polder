@@ -19,6 +19,7 @@ function Sidebar() {
               Sanyo Denki Philippines
             </span>
           </div>
+          <br />
 
           <div className="timeline-item">
             <h4>
@@ -29,7 +30,7 @@ function Sidebar() {
               MACSAT Inc.
             </span>
           </div>
-
+          <br />
           <div className="timeline-item">
             <h4>
               Guest Speaker
@@ -43,7 +44,7 @@ function Sidebar() {
         </div>
 
       </div>
-
+     <br /> 
       {/* ACHIEVEMENTS */}
 
       <div className="sidebar-card">
@@ -81,6 +82,8 @@ function Sidebar() {
         </div>
 
       </div>
+      
+         <br /> 
 
       {/* CONTACT */}
 
