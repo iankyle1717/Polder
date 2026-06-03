@@ -40,7 +40,7 @@ function Header({ onOpenEMS })  {
             <div className="action-buttons">
               <button className="btn btn-dark">Contact Me</button>
               <a
-                  href="/Ian_Kyle_Maghinay_CV.pdf"
+                  href="/Ian_Maghinay_CV.pdf"
                   download
                   className="btn btn-light"
                 >
