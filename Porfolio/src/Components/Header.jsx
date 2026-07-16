@@ -67,11 +67,7 @@ function Header({ onOpenEMS }) {
 
           <div className="hero-right">
             <div className="profile-frame">
-              <img
-                src={dark ? profileShade : profile}
-                className="profile-img"
-                alt="Ian Kyle Felix Maghinay"
-              />
+             <img src={dark ? profileShade : profile} />
             </div>
             <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
               <i className={`fa-solid ${dark ? "fa-sun" : "fa-moon"}`}></i>
