@@ -1,45 +1,37 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import Header from "./Components/Header.jsx";
 import About from "./Components/About.jsx";
 import TechStack from "./Components/TechStack.jsx";
 import Projects from "./Components/Projects.jsx";
-import Sidebar from "./Components/Sidebar.jsx";
+import Experience from "./Components/Experience.jsx";
+import Certifications from "./Components/Certifications.jsx";
 import Footer from "./Components/Footer.jsx";
 import EMSOverlay from "./Components/EMSOverlay.jsx";
-
+import NavBar from "./Components/NavBar.jsx";
 import "./App.css";
 
 function App() {
-
   const [openEMS, setOpenEMS] = useState(false);
 
   return (
     <div className="portfolio">
-
+      <NavBar />
       <Header onOpenEMS={() => setOpenEMS(true)} />
 
-      <div className="content-grid">
-
-        <div>
-          <About />
-          <TechStack />
-
-          <Projects onOpenEMS={() => setOpenEMS(true)} />
-        </div>
-
-        <Sidebar />
-
-      </div>
+      <main>
+        <About />
+        <TechStack />
+        <Projects onOpenEMS={() => setOpenEMS(true)} />
+        <Experience />
+        <Certifications />
+      </main>
 
       <Footer />
 
-      {/* GLOBAL EMS OVERLAY */}
       <EMSOverlay
         show={openEMS}
         onClose={() => setOpenEMS(false)}
       />
-
     </div>
   );
 }

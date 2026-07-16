@@ -1,88 +1,49 @@
 function TechStack() {
+  const stacks = [
+    {
+      title: "Frontend",
+      icon: "fa-code",
+      techs: ["HTML5", "CSS3", "JavaScript", "React", "Bootstrap", "Tailwind CSS", "Responsive UI"]
+    },
+    {
+      title: "Backend",
+      icon: "fa-server",
+      techs: ["C#", "VB.NET", "ASP.NET MVC", ".NET Core API", "Node.js", "WinForms"]
+    },
+    {
+      title: "Database",
+      icon: "fa-database",
+      techs: ["SQL Server", "SSMS", "Stored Procedures", "Database Design"]
+    },
+    {
+      title: "Tools",
+      icon: "fa-toolbox",
+      techs: ["Visual Studio", "VS Code", "GitHub", "REST APIs"]
+    }
+  ];
+
   return (
-    <div className="section">
-
-      <div className="section-title">
-        <h2>Tech Stack</h2>
+    <section className="section section-alt" id="stack">
+      <div className="container">
+        <div className="section-header reveal">
+          <h2>Tech Stack</h2>
+          <p>Technologies I work with daily</p>
+          <div className="section-line"></div>
+        </div>
+        <div className="stack-grid">
+          {stacks.map((stack, i) => (
+            <div className="stack-card reveal" key={stack.title} style={{ animationDelay: `${i * 0.1}s` }}>
+              <h3><i className={`fa-solid ${stack.icon}`}></i> {stack.title}</h3>
+              <div className="tech-list">
+                {stack.techs.map(tech => (
+                  <span className="tech-tag" key={tech}>{tech}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div className="stack-grid">
-
-        {/* FRONTEND */}
-
-        <div className="stack-card">
-
-          <h3>Frontend</h3>
-
-          <div className="tech-list">
-
-            <div className="tech">HTML5</div>
-            <div className="tech">CSS3</div>
-            <div className="tech">JavaScript</div>
-            <div className="tech">React</div>
-            <div className="tech">Bootstrap</div>
-            <div className="tech">Tailwind CSS</div>
-            <div className="tech">Responsive UI</div>
-
-          </div>
-
-        </div>
-
-        {/* BACKEND */}
-
-        <div className="stack-card">
-
-          <h3>Backend</h3>
-
-          <div className="tech-list">
-
-            <div className="tech">C#</div>
-            <div className="tech">VB.NET</div>
-            <div className="tech">ASP.NET MVC</div>
-            <div className="tech">.NET Core API</div>
-            <div className="tech">Node.js</div>
-            <div className="tech">WinForms</div>
-
-          </div>
-
-        </div>
-
-        {/* DATABASE */}
-
-        <div className="stack-card">
-
-          <h3>Database</h3>
-
-          <div className="tech-list">
-
-            <div className="tech">SQL Server</div>
-            <div className="tech">SSMS</div>
-            <div className="tech">Stored Procedures</div>
-            <div className="tech">Database Design</div>
-
-          </div>
-
-        </div>
-
-        {/* TOOLS */}
-
-        <div className="stack-card">
-
-          <h3>Tools</h3>
-
-          <div className="tech-list">
-
-            <div className="tech">Visual Studio</div>
-            <div className="tech">VS Code</div>
-            <div className="tech">GitHub</div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
+    </section>
   );
 }
 
