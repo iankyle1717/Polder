@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import NavBar from "./Components/NavBar.jsx";
 import Header from "./Components/Header.jsx";
 import About from "./Components/About.jsx";
 import TechStack from "./Components/TechStack.jsx";
@@ -7,32 +8,37 @@ import Experience from "./Components/Experience.jsx";
 import Certifications from "./Components/Certifications.jsx";
 import Footer from "./Components/Footer.jsx";
 import EMSOverlay from "./Components/EMSOverlay.jsx";
-import NavBar from "./Components/NavBar.jsx";
-import "./App.css";
 
 function App() {
-  const [openEMS, setOpenEMS] = useState(false);
+  const [showEMS, setShowEMS] = useState(false);
+
+  // Scroll reveal — replaces the old vanilla JS IntersectionObserver
+  useEffect(() => {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    reveals.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="portfolio">
+    <>
       <NavBar />
-      <Header onOpenEMS={() => setOpenEMS(true)} />
-
-      <main>
-        <About />
-        <TechStack />
-        <Projects onOpenEMS={() => setOpenEMS(true)} />
-        <Experience />
-        <Certifications />
-      </main>
-
+      <Header onOpenEMS={() => setShowEMS(true)} />
+      <About />
+      <TechStack />
+      <Projects onOpenEMS={() => setShowEMS(true)} />
+      <Experience />
+      <Certifications />
       <Footer />
-
-      <EMSOverlay
-        show={openEMS}
-        onClose={() => setOpenEMS(false)}
-      />
-    </div>
+      <EMSOverlay show={showEMS} onClose={() => setShowEMS(false)} />
+    </>
   );
 }
 
