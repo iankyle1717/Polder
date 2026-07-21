@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import profile from "../assets/pc.jpg";
-import profileShade from "../assets/pc-shades.png";
+import profile from "../assets/pogi-lang.png";
+import profileShade from "../assets/pogi-shades.png";
 
 function Header({ onOpenEMS }) {
   const [dark, setDark] = useState(false);
@@ -42,7 +42,7 @@ function Header({ onOpenEMS }) {
               <a href="mailto:iankyle1717@gmail.com" className="btn btn-primary">
                 <i className="fa-solid fa-envelope"></i> Contact Me
               </a>
-              <a href="/Ian_Kyle_Maghinay_CV.pdf" download className="btn btn-outline">
+              <a href="/Ian_Kyle_Maghinay_CV_updated.pdf" download className="btn btn-outline">
                 <i className="fa-solid fa-download"></i> Download CV
               </a>
               <button className="btn btn-outline" onClick={onOpenEMS}>
