@@ -1,6 +1,7 @@
+
 import { useEffect, useState } from "react";
-import profile from "../assets/pogi-lang.png";
-import profileShade from "../assets/pogi-shades.png";
+import profile from "../assets/pogilang.png";
+import profileShade from "../assets/astroboy.png";
 
 function Header({ onOpenEMS }) {
   const [dark, setDark] = useState(false);
@@ -67,9 +68,16 @@ function Header({ onOpenEMS }) {
 
           <div className="hero-right">
             <div className="profile-frame">
+              {/* Light mode image */}
               <img
-                src={dark ? profileShade : profile}
-                className="profile-img"
+                src={profile}
+                className={`profile-img profile-img-light ${!dark ? "profile-img-active" : ""}`}
+                alt="Ian Kyle Felix Maghinay"
+              />
+              {/* Dark mode image */}
+              <img
+                src={profileShade}
+                className={`profile-img profile-img-dark ${dark ? "profile-img-active" : ""}`}
                 alt="Ian Kyle Felix Maghinay"
               />
             </div>

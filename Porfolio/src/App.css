@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    IAN KYLE FELIX MAGHINAY — PORTFOLIO STYLES
-   Clean, Professional, Dark Mode Ready
+   Clean, Professional, Galaxy Night Mode Ready
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── CSS VARIABLES ── */
@@ -22,19 +22,47 @@
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   GALAXY NIGHT MODE
+   ═══════════════════════════════════════════════════════════════ */
 .dark-mode {
-  --bg: #0b1120;
-  --bg-alt: #111827;
-  --bg-card: #1e293b;
+  /* Deep space background */
+  --bg: #050714;
+  --bg-alt: #0a0f1e;
+  --bg-card: rgba(15, 23, 42, 0.6);
+
+  /* Starlight text */
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --text-muted: #64748b;
-  --accent: #38bdf8;
-  --accent-hover: #7dd3fc;
-  --accent-soft: rgba(56, 189, 248, 0.1);
-  --border: #334155;
-  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
-  --shadow-lg: 0 4px 6px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.3);
+
+  /* Nebula accent (indigo → purple → pink) */
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-soft: rgba(99, 102, 241, 0.1);
+
+  /* Cosmic borders */
+  --border: rgba(99, 102, 241, 0.2);
+  --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.4);
+}
+
+/* Galaxy nebula background overlay */
+body.dark-mode {
+  background: #050714;
+  position: relative;
+}
+
+body.dark-mode::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ── RESET & BASE ── */
@@ -50,6 +78,12 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure content sits above nebula */
+.container, .hero, .section, .nav-bar, .modal-overlay, .footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── ANIMATIONS ── */
@@ -124,6 +158,9 @@ body {
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
+.dark-mode .hero-badge .dot {
+  box-shadow: 0 0 8px #22c55e;
+}
 
 .hero h1 {
   font-size: clamp(2.6rem, 5vw, 4.2rem);
@@ -134,6 +171,12 @@ body {
 }
 .hero h1 .highlight {
   background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark-mode .hero h1 .highlight {
+  background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -187,6 +230,14 @@ body {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
+.dark-mode .btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.dark-mode .btn-primary:hover {
+  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
@@ -196,6 +247,9 @@ body {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+.dark-mode .btn-outline:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
 }
 
 /* ── SOCIALS ── */
@@ -219,6 +273,9 @@ body {
   color: var(--accent);
   transform: translateY(-3px);
   box-shadow: var(--shadow);
+}
+.dark-mode .hero-socials a:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
 }
 
 /* ── PROFILE IMAGE ── */
@@ -250,6 +307,12 @@ body {
   border-radius: 50%;
   animation: floatSlow 10s ease-in-out infinite reverse;
 }
+.dark-mode .profile-frame::before {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+.dark-mode .profile-frame::after {
+  border-color: rgba(168, 85, 247, 0.2);
+}
 
 .profile-img {
   width: 100%; height: 100%;
@@ -264,6 +327,9 @@ body {
 }
 .profile-frame:hover .profile-img {
   transform: scale(1.03);
+}
+.dark-mode .profile-img {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
 }
 
 /* ── THEME TOGGLE ── */
@@ -290,6 +356,13 @@ body {
   border-color: var(--accent);
   color: var(--accent);
 }
+.dark-mode .theme-toggle {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+.dark-mode .theme-toggle:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
 
 /* ── NAV BAR ── */
 .nav-bar {
@@ -308,6 +381,11 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
+.dark-mode .nav-bar {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
 .nav-bar a {
   padding: 10px 20px;
   border-radius: 100px;
@@ -322,6 +400,12 @@ body {
 .nav-bar a.active {
   background: var(--text-primary);
   color: var(--bg);
+}
+.dark-mode .nav-bar a:hover,
+.dark-mode .nav-bar a.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 /* ── SECTIONS ── */
@@ -354,6 +438,9 @@ body {
   border-radius: 2px;
   margin: 16px auto 0;
 }
+.dark-mode .section-line {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+}
 
 /* ── ABOUT ── */
 .about-text {
@@ -382,6 +469,9 @@ body {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--accent);
+}
+.dark-mode .stack-card:hover {
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 .stack-card h3 {
   font-size: 1rem;
@@ -417,6 +507,9 @@ body {
   color: var(--accent);
   background: var(--accent-soft);
 }
+.dark-mode .tech-tag:hover {
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+}
 
 /* ── PROJECTS ── */
 .projects-grid {
@@ -433,6 +526,9 @@ body {
 .project-card:hover {
   box-shadow: var(--shadow-lg);
   border-color: var(--accent);
+}
+.dark-mode .project-card:hover {
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 .project-header {
   padding: 28px 28px 0;
@@ -556,6 +652,9 @@ body {
   border-color: var(--accent);
   transform: translateX(4px);
 }
+.dark-mode .timeline-card:hover {
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+}
 .timeline-card h4 {
   font-size: 0.98rem;
   font-weight: 700;
@@ -587,6 +686,9 @@ body {
   border-radius: var(--radius);
   padding: 24px;
   margin-bottom: 20px;
+}
+.dark-mode .sidebar-card:hover {
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 .sidebar-card h3 {
   font-size: 1rem;
@@ -647,6 +749,9 @@ body {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
+.dark-mode .social-row a:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
 
 .achievement-item {
   padding: 14px 0;
@@ -687,6 +792,9 @@ body {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
+.dark-mode .cert-card:hover {
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+}
 .cert-icon {
   width: 44px; height: 44px;
   background: linear-gradient(135deg, var(--accent), #8b5cf6);
@@ -726,6 +834,9 @@ body {
   visibility: hidden;
   transition: all 0.35s ease;
 }
+.dark-mode .modal-overlay {
+  background: rgba(2, 6, 23, 0.8);
+}
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
@@ -741,6 +852,9 @@ body {
   transform: scale(0.92) translateY(30px);
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+.dark-mode .modal-content {
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
 }
 .modal-overlay.active .modal-content {
   transform: scale(1) translateY(0);
@@ -851,3 +965,49 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+.dark-mode ::-webkit-scrollbar-track {
+  background: #050714;
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+}
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+.profile-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg-card);
+  box-shadow: var(--shadow-lg);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s ease,
+              filter 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profile-img-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Galaxy glow on dark mode image */
+.dark-mode .profile-img-dark {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+}
+
+/* Optional: add a subtle scale effect during transition */
+.profile-frame:hover .profile-img-active {
+  transform: scale(1.03);
+}
